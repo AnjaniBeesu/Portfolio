@@ -8,7 +8,6 @@ function PencilLoader() {
 }
 
 const skills = ["Java", "JavaScript", "Node.js", "Next.js", "React", "HTML & CSS", "Puppeteer", "Web Scraping", "CSV & Data Processing", "Git & GitHub", "Vercel", "UI / UX"];
-
 const projects = [
   { title: "STUKO", type: "Study platform", text: "An all-in-one study tool designed around interests, personality, and a genuinely cute UI." },
   { title: "Community Map Platform", type: "Web platform", text: "A community-focused mapping project built to make local information easier to discover and explore." },
@@ -22,20 +21,28 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   useEffect(() => { const timer = window.setTimeout(() => setReady(true), 1100); return () => window.clearTimeout(timer); }, []);
   if (!ready) return <PencilLoader />;
-
   return <main className="site-shell">
     <nav className="nav"><a className="brand" href="#top">AB / 2026</a><div className="nav-links"><a href="#about">about</a><a href="#skills">skills</a><a href="#work">my work</a><a href="#contact">contact</a><ThemeSwitch /></div></nav>
-
     <section className="hero" id="top"><div className="hero-inner"><div className="eyebrow"><strong>ANJANI BEESU</strong></div><h1>Building things<br />worth clicking</h1><p className="hero-copy">CSE student&nbsp; | &nbsp;builder&nbsp; | &nbsp;curious human</p><div className="actions"><a className="button" href="#work">Explore my work ↗</a><a className="button primary" href="#contact">Connect with me ↗</a></div></div><div className="corner-note">SCROLL TO EXPLORE ↓</div></section>
-
-    <section className="section about-section" id="about"><div className="section-label">01 / ABOUT ME</div><div className="about-grid"><div><h2>Hi, I&apos;m Anjani Beesu.</h2><p>I&apos;m currently pursuing my <strong>B.Tech in Computer Science &amp; Engineering</strong>.</p><p><strong>Grade: 9.15</strong></p><p>I build things that are intentional and useful.<br />I like making them look good enough to make you want to click.</p></div><div className="leadership"><div className="mini-label">LEADERSHIP</div><details className="leadership-details"><summary><span><strong>Class Representative</strong><small>AUG 2025 — PRESENT</small></span><span className="details-toggle" aria-hidden="true">+</span></summary><div className="leadership-content"><p>Serving as Class Representative for a class of 60, coordinating with faculty, managing class communication and academic requirements, and keeping things moving when they need to.</p><p><strong>Event Organizer</strong></p><p>Organized <strong>4 departmental events</strong> and <strong>1 college-level event</strong>, helping plan, coordinate, and execute events with students and faculty.</p></div></details></div></div></section>
-
+    <section className="section about-section" id="about">
+      <div className="section-label about-heading">01 / ABOUT ME</div>
+      <div className="about-content">
+        <h2>Hi, I&apos;m Anjani Beesu.</h2>
+        <p className="about-intro">I&apos;m currently pursuing my <strong>B.Tech in Computer Science &amp; Engineering</strong>, where I&apos;m constantly exploring how technology can become something people genuinely enjoy using.</p>
+        <p className="about-grade"><strong>Grade: 9.15</strong></p>
+        <p className="about-statement">I build things that are intentional and useful.<br />I care about the details, the experience, and making every project feel like something worth clicking.</p>
+        <div className="leadership">
+          <div className="mini-label">LEADERSHIP</div>
+          <details className="leadership-details">
+            <summary><span><strong>Class Representative</strong><small>AUG 2025 — PRESENT</small></span><span className="details-toggle" aria-hidden="true">+</span></summary>
+            <div className="leadership-content"><p>Serving as Class Representative for a class of 60, coordinating with faculty, managing class communication and academic requirements, and keeping things moving when they need to.</p><p><strong>Event Organizer</strong></p><p>Organized <strong>4 departmental events</strong> and <strong>1 college-level event</strong>, helping plan, coordinate, and execute events with students and faculty.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
     <section className="section" id="skills"><div className="section-label">02 / SKILLS</div><h2>Tools I build with.</h2><div className="skills-grid">{skills.map((skill) => <div className="skill" key={skill}>{skill}</div>)}</div></section>
-
     <section className="section work-section" id="work"><div className="section-label">03 / MY WORK</div><h2>Things I&apos;ve built.</h2><div className="project-grid">{projects.map((project, index) => <article className="project-card" key={project.title}><span className="project-number">0{index + 1}</span><div><span className="project-type">{project.type}</span><h3>{project.title}</h3><p>{project.text}</p></div><span className="project-arrow">↗</span></article>)}</div></section>
-
     <section className="section contact-section" id="contact"><div className="section-label">04 / CONTACT ME</div><div className="contact-grid"><div><h2>Have an idea?<br />Send it my way.</h2><p>Whether it&apos;s an internship, collaboration, project, or simply an interesting conversation — I&apos;d love to hear from you.</p></div><form className="contact-form" action="/api/contact" method="POST"><label>Name<input name="name" type="text" placeholder="Your name" required /></label><label>Email<input name="email" type="email" placeholder="you@example.com" required /></label><label>Message<textarea name="message" placeholder="Tell me what&apos;s on your mind..." rows={5} required /></label><button className="button primary" type="submit">Send message ↗</button></form></div></section>
-
     <footer className="footer">© 2026 Anjani Beesu · designed &amp; built from scratch.</footer>
   </main>;
 }
