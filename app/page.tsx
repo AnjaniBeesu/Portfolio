@@ -33,10 +33,10 @@ export default function Home() {
         <p className="about-statement">I build things that are intentional and useful.<br />I care about the details, the experience, and making every project feel like something worth clicking.</p>
         <div className="leadership">
           <div className="mini-label">LEADERSHIP</div>
-          <details className="leadership-details">
-            <summary><span><strong>Class Representative</strong><small>AUG 2025 — PRESENT</small></span><span className="details-toggle" aria-hidden="true">+</span></summary>
-            <div className="leadership-content"><p>Serving as Class Representative for a class of 60, coordinating with faculty, managing class communication and academic requirements, and keeping things moving when they need to.</p><p><strong>Event Organizer</strong></p><p>Organized <strong>4 departmental events</strong> and <strong>1 college-level event</strong>, helping plan, coordinate, and execute events with students and faculty.</p></div>
-          </details>
+          <div className="leadership-details">
+            <details open><summary><span><strong>Class Representative</strong><small>AUG 2025 — PRESENT</small></span></summary><div className="leadership-content"><p>Serving as Class Representative for a class of 60, coordinating with faculty, managing class communication and academic requirements, and keeping things moving when they need to.</p></div></details>
+            <details open><summary><span><strong>Event Organizer</strong><small>4 DEPARTMENTAL + 1 COLLEGE-LEVEL EVENT</small></span></summary><div className="leadership-content"><p>Organized <strong>4 departmental events</strong> and <strong>1 college-level event</strong>, helping plan, coordinate, and execute events with students and faculty.</p></div></details>
+          </div>
         </div>
       </div>
     </section>
