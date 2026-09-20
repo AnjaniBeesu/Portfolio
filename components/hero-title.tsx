@@ -35,7 +35,10 @@ export default function HeroTitle() {
 
   return (
     <h1 className="hero-title">
-      BUILDING TECH THAT&apos;S
+      <span className="hero-building-line">
+        <span className="hero-love-label">I LOVE</span>
+        <span>BUILDING TECH THAT&apos;S</span>
+      </span>
       <br />
       <span className="hero-rotating-word" aria-live="polite">
         <span className="hero-rotating-word-text">{display}</span>
