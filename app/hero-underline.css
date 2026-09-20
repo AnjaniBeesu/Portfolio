@@ -1,0 +1,26 @@
+.hero-rotating-word {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+.hero-rotating-word-text {
+  display: inline-block !important;
+  width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  color: var(--accent);
+  border-bottom: 3px dashed var(--accent);
+  padding-bottom: 5px;
+}
+
+@media (max-width: 700px) {
+  .hero-rotating-word-text {
+    border-bottom-width: 2px;
+    padding-bottom: 3px;
+  }
+}
