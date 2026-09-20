@@ -37,12 +37,8 @@ export default function HeroTitle() {
     <h1 className="hero-title">
       BUILDING TECH THAT&apos;S
       <br />
-      <span
-        className={`hero-rotating-word${display ? " has-text" : ""}`}
-        aria-live="polite"
-        style={{ display: "inline-block", width: "fit-content", maxWidth: "100%" }}
-      >
-        {display}
+      <span className="hero-rotating-word" aria-live="polite">
+        <span className="hero-rotating-word-text">{display}</span>
       </span>
     </h1>
   );
