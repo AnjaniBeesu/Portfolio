@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./hero-underline.css";
+import "./inter-display.css";
 
 export const metadata: Metadata = {
   title: "Anjani Beesu — Portfolio",
