@@ -1,61 +1,65 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect } from "react";
+
+const SHARE_ICON = `
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-1-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-1-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
+  </svg>`;
 
 export default function ShareButton() {
-  const [mount, setMount] = useState<HTMLElement | null>(null);
-  const [status, setStatus] = useState("");
-
   useEffect(() => {
     const githubLink = document.querySelector<HTMLAnchorElement>(
       '.contact-links a[href="https://github.com/AnjaniBeesu"]'
     );
+
     if (!githubLink) return;
 
     const wrapper = document.createElement("span");
     wrapper.className = "portfolio-share-mount";
-    githubLink.insertAdjacentElement("afterend", wrapper);
-    setMount(wrapper);
 
-    return () => wrapper.remove();
-  }, []);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "portfolio-share-button";
+    button.setAttribute("aria-label", "Share this portfolio");
+    button.innerHTML = `<span>SHARE</span>${SHARE_ICON}`;
 
-  async function sharePortfolio() {
-    const shareData = {
-      title: "Anjani Beesu — Portfolio",
-      text: "Check out Anjani Beesu's portfolio.",
-      url: window.location.href,
+    const showCopied = () => {
+      const status = document.createElement("span");
+      status.className = "portfolio-share-status";
+      status.textContent = "LINK COPIED";
+      button.appendChild(status);
+      window.setTimeout(() => status.remove(), 2000);
     };
 
-    try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-        return;
+    button.addEventListener("click", async () => {
+      const shareData = {
+        title: "Anjani Beesu — Portfolio",
+        text: "Check out Anjani Beesu's portfolio.",
+        url: window.location.href,
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+
+        await navigator.clipboard.writeText(window.location.href);
+        showCopied();
+      } catch {
+        // Sharing can be cancelled by the user; do nothing.
       }
-      await navigator.clipboard.writeText(window.location.href);
-      setStatus("LINK COPIED");
-      window.setTimeout(() => setStatus(""), 2000);
-    } catch {
-      // Native share can be cancelled by the user.
-    }
-  }
+    });
 
-  if (!mount) return null;
+    wrapper.appendChild(button);
+    githubLink.insertAdjacentElement("afterend", wrapper);
 
-  return createPortal(
-    <button
-      type="button"
-      className="portfolio-share-button"
-      onClick={sharePortfolio}
-      aria-label="Share this portfolio"
-    >
-      <span>SHARE</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-1-1-1s.45-1 1-1 1-.45 1-1zm12 7.02c-.55 0-1-1-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-      </svg>
-      {status && <span className="portfolio-share-status">{status}</span>}
-    </button>,
-    mount
-  );
+    return () => {
+      button.replaceWith();
+      wrapper.remove();
+    };
+  }, []);
+
+  return null;
 }
