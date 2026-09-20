@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./hero-underline.css";
 import SplashCursor from "@/components/SplashCursor";
 
 export const metadata: Metadata = {
