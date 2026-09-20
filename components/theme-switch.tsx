@@ -11,7 +11,12 @@ export default function ThemeSwitch() {
 
   return (
     <label className="theme-switch" aria-label="Toggle light and dark mode">
-      <input type="checkbox" className="theme-switch__checkbox" checked={light} onChange={(event) => setLight(event.target.checked)} />
+      <input
+        type="checkbox"
+        className="theme-switch__checkbox"
+        checked={!light}
+        onChange={(event) => setLight(!event.target.checked)}
+      />
       <div className="theme-switch__container">
         <div className="theme-switch__clouds" />
         <div className="theme-switch__stars-container">✦</div>
