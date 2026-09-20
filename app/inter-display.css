@@ -1,0 +1,13 @@
+@import url('https://rsms.me/inter/inter.css');
+
+.hero .hero-name,
+.hero-title,
+.section h2,
+.about-section .about-content h2,
+.project-card h3,
+.contact-grid h2,
+.leadership h3,
+.skill-category,
+.brand {
+  font-family: 'Inter Display', Inter, system-ui, sans-serif;
+}
