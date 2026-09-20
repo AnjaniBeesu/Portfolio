@@ -18,6 +18,11 @@
   padding-bottom: 5px;
 }
 
+/* I LOVE: rotate 90° clockwise and keep it attached vertically to BUILDING. */
+.hero-love-label {
+  transform: translateY(-50%) rotate(90deg) !important;
+}
+
 @media (max-width: 700px) {
   .hero-rotating-word-text {
     border-bottom-width: 2px;
