@@ -16,12 +16,10 @@ const skillGroups = [
   { title: "Tools", items: ["VS Code", "Docker", "Vercel"] },
 ];
 const projects = [
-  { title: "STUKO", type: "Study platform", text: "An all-in-one study tool designed around interests, personality, and a genuinely cute UI." },
-  { title: "Community Map Platform", type: "Web platform", text: "A community-focused mapping project built to make local information easier to discover and explore." },
-  { title: "EAMCET 2027", type: "Education platform", text: "A student-focused web project with data-driven tooling and an evolving 2027 exam experience." },
-  { title: "Project 04", type: "Experiment", text: "A space for the next idea worth building." },
-  { title: "Project 05", type: "Experiment", text: "More things are being designed, tested, and shipped." },
-  { title: "Project 06", type: "Experiment", text: "The portfolio is still growing — so is the work." },
+  { title: "CRICKO", type: "Cricket RAG · In progress", text: "A domain-specific RAG project for cricket analytics, combining cricket statistics, match analysis, player comparisons, and statistical reasoning." },
+  { title: "STUKO", type: "Study platform", text: "An all-in-one study platform designed to bring useful study tools and resources together in one place." },
+  { title: "EAMCET 2027", type: "Education platform", text: "A student-focused platform for exploring EAMCET-related colleges, ranks, and admission information." },
+  { title: "THE SPACE", type: "NASA-powered web experience", text: "A NASA-powered website built to make exploring space more interactive, visual, and accessible." },
 ];
 
 export default function Home() {
