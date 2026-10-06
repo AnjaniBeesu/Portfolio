@@ -16,10 +16,10 @@ const skillGroups = [
   { title: "Tools", items: ["VS Code", "Docker", "Vercel"] },
 ];
 const projects = [
-  { title: "CRICKO", type: "Cricket RAG · In progress", text: "A domain-specific RAG project for cricket analytics, combining cricket statistics, match analysis, player comparisons, and statistical reasoning.", href: "https://github.com/AnjaniBeesu/CRICKO" },
+  { title: "THE SPACE", type: "NASA-powered web experience", text: "A NASA-powered website built to make exploring space more interactive, visual, and accessible.", href: "https://github.com/AnjaniBeesu/space" },
   { title: "STUKO", type: "Study platform", text: "An all-in-one study platform designed to bring useful study tools and resources together in one place.", href: "https://github.com/AnjaniBeesu/STUKO" },
   { title: "EAMCET 2027", type: "Education platform", text: "A student-focused platform for exploring EAMCET-related colleges, ranks, and admission information.", href: "https://github.com/AnjaniBeesu/Eamcet-2027" },
-  { title: "THE SPACE", type: "NASA-powered web experience", text: "A NASA-powered website built to make exploring space more interactive, visual, and accessible.", href: "https://github.com/AnjaniBeesu/space" },
+  { title: "CRICKO", type: "Cricket RAG · In progress", text: "A domain-specific RAG project for cricket analytics, combining cricket statistics, match analysis, player comparisons, and statistical reasoning.", href: "https://github.com/AnjaniBeesu/CRICKO" },
   { title: "PATHLOOM", type: "Career study guide", text: "A company-focused study guide for job seekers, helping candidates prepare for specific companies.", href: "https://github.com/AnjaniBeesu/Pathloom" },
   { title: "MEMORIA", type: "Project · In progress", text: "A new project currently in development.", href: "https://github.com/AnjaniBeesu/MEMORIA" },
 ];
